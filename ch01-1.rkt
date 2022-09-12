@@ -51,10 +51,10 @@
 (define sg-op (p-rec 1 (λ (n r) ((const 0) n))))
 
 ; arithmetic funcs
-; n + m (also as `or` for rels)
+; n + m
 (define (add n m)
   (p-rec^ m (λ (n r) (add1 r)) n))
-; n * m (also as `and` for rels)
+; n * m
 (define (mul n m)
   (p-rec^ 0 (λ (n r) (add m r)) n))
 
@@ -150,3 +150,5 @@
 
 (define (rem a n)
   (sub a (mul (div a n) n)))
+
+(provide (all-defined-out))
